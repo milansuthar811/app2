@@ -20,6 +20,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
 
+    // Route::get('/welcome', function () {
+    //     return view('layouts.app', []);
+    // });
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes

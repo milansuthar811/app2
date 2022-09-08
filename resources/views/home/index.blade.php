@@ -3,9 +3,13 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
-        <h1>Dashboard</h1>
-        <!-- <p class="lead">Only authenticated users can access this section.</p> -->
-        <!-- <a class="btn btn-lg btn-primary" href="https://codeanddeploy.com" role="button">View more tutorials here </a> -->
+        <h1>logged in !!!!!!!</h1>
+
+
+
+
+
+
         @endauth
 
         @guest
