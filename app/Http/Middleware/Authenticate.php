@@ -7,15 +7,17 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class Authenticate extends Middleware
 {
-    public function handle( $request, Closure $next, ...$guards)
+
+
+    public function handle($request, Closure $next, ...$guards)
     {
         if (Auth::check()) {
             return $next($request);
         }
         return redirect('/login');
-
     }
 
     /**
@@ -26,7 +28,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             return route('login');
         }
     }
