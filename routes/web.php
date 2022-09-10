@@ -18,7 +18,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::group(['middleware' => 'auth'], function(){
+        Route::get('/', 'HomeController@index')->name('home.index');
+    });
+
+
 
     // Route::get('/welcome', function () {
     //     return view('layouts.app', []);

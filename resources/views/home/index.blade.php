@@ -4,12 +4,6 @@
     <div class="bg-light p-5 rounded">
         @auth
         <h1>logged in !!!!!!!</h1>
-
-
-
-
-
-
         @endauth
 
         @guest
