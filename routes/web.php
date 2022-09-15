@@ -19,10 +19,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::group(['middleware' => 'auth'], function(){
-        Route::get('/', 'HomeController@index')->name('home.index');
+        Route::resource('users', UserController::class);
+
     });
 
-    Route::resource('users', UserController::class);
+    Route::get('/', 'HomeController@index')->name('home.index');
 
     // Route::get('/welcome', function () {
     //     return view('layouts.app', []);
@@ -33,13 +34,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');
-
         /**
          * Login Routes
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
-
     });
 
     Route::group(['middleware' => ['auth']], function() {
