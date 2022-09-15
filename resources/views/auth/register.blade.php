@@ -40,7 +40,10 @@
             @endif
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+        <button class="w-100 btn btn-lg  btn-info" type="submit">Register</button>
+         <br>
+         <br>
+        <a class="w-100 btn-lg link-primary" href="{{ route('login.show') }}">Login</a>
 
         @include('auth.partials.copy')
     </form>
