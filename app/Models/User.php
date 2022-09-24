@@ -22,6 +22,7 @@ protected $fillable = [
     'email',
     'username',
     'password',
+    'name',
   ];
     /**
      * The attributes that should be hidden for serialization.

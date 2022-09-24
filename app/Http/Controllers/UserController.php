@@ -54,10 +54,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
-    {
-        return view('users.show',compact('user'));
-    } 
+    // public function show(User $user)
+    // {
+    //     return view('users.show',compact('user'));
+    // } 
      
     /**
      * Show the form for editing the specified resource.
