@@ -12,7 +12,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('home.index') }}" class="nav-link active">
+                <a href="{{ route('home.dashboard_index') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home</p>
                 </a>
