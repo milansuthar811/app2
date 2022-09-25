@@ -36,28 +36,26 @@
         <div class="col-12">
           <!-- /.card -->
           <div class="card">
-            <div class="card-header">
+            <!-- <div class="card-header">
               <h3 class="card-title">DaTable with default features</h3>
-            </div>
+            </div> -->
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Engine version</th>
                     <th width="280px">Action</th>
+                    <th>Username</th>
+                    <th >Email</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($users as $user)
                   <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td> <form action="{{ route('users.destroy',$user->id) }}"
+                     <td> <form action="{{ route('users.destroy',$user->id) }}"
                         method="POST">
-                        <a class="btn btn-info" href="{{
-                          route('users.show',$user->id) }}">Show</a>
+                        <!-- <a class="btn btn-info" href="{{
+                          route('users.show',$user->id) }}">Show</a> -->
                         <a class="btn btn-primary" href="{{
                           route('users.edit',$user->id) }}">Edit</a>
                         @csrf
@@ -65,14 +63,17 @@
                         <button type="submit" class="btn btn-danger">Delete</button>
                       </form>
                     </td>
+                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->email }}</td>
+                   
                   </tr>
                   @endforeach
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
+                    <th>Action</th>
+                    <th>Username</th>
+                    <th>Email</th>
                   </tr>
                 </tfoot>
               </table>
