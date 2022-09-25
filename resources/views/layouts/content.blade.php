@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-md-12 text-right">
       <div class="pull-right">
-        <a class="btn btn-primary mr-3 mb-2" href="{{ route('register.show') }}">Create User</a>
+        <a class="btn btn-primary mr-3 mb-2" href="{{ route('users.create') }}" >Create User</a>
       </div>
     </div>
   </div>

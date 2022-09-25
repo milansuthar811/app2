@@ -6,7 +6,6 @@
             @auth
             @include('layouts.navbar')
             <!-- @include('layouts.sidebar') -->
-            @include('layouts.content')
             <main class="container">
                 @yield('content')
             </main>
@@ -20,5 +19,6 @@
         </div>
 
  <!-- DataTables  & Plugins -->
+ 
     </body>
 </html>
