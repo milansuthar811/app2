@@ -639,5 +639,10 @@
               <p>Informational</p>
             </a>
           </li>
+           @auth
+          <li class="nav-item">
+           <a href="{{ route('logout.perform') }}" class="btn btn-block btn-info  me-2">Logout</a>
+          </li>
+           @endauth
         </ul>
       </nav>
