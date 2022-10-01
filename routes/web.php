@@ -20,7 +20,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::group(['middleware' => 'auth'], function(){
         Route::resource('users', UserController::class);
-
     });
 
     Route::get('/', 'HomeController@index')->name('home.dashboard_index');
@@ -47,4 +46,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
+
+
+    // Google URL
+    // Route::prefix('google')->name('google.')->group(function () {
+    //     Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
+    //     Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+    // });    
+    Route::prefix('google')->name('google.')->group(function () {
+        Route::get('login', 'GoogleController@loginWithGoogle')->name('login');
+        Route::any('callback', 'GoogleController@callbackFromGoogle')->name('callback');
+    });    
+   
 });

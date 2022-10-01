@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('layouts.partials.header')
-    <body class="hold-transition sidebar-mini">
+    <body class="hold-transition sidebar-mini  layout-fixed">
         <div class="wrapper">
             @auth
             @include('layouts.navbar')
