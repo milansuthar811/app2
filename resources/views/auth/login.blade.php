@@ -60,9 +60,9 @@
     </div>
 
     <div class="col-md-12">
-        <button class="w-100 btn btn-lg btn-primary mb-2" type="submit">Login</button>
-        <a class="w-100 btn btn-lg btn-primary  mb-2" href="{{ route('register.show') }}">Register</a>
-        <a class="w-100 btn btn-lg btn-primary  mb-2" href="{{ route('google.login') }}" >
+        <button class="w-100 btn btn-md btn-primary mb-2" type="submit">Login</button>
+        <a class="w-100 btn btn-md btn-primary  mb-2" href="{{ route('register.show') }}">Register</a>
+        <a class="w-100 btn btn-md btn-primary  mb-2" href="{{ route('google.login') }}" >
         <img src="https://img.icons8.com/color/16/000000/google-logo.png" /> Signup Using Google</a>
     </div>
 
