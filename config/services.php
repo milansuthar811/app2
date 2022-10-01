@@ -29,5 +29,14 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'facebook' => [
+        'client_id' => '', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'client_secret' => '', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => 'https://examplelaravel8.test/facebook/callback/'
+    ],
+    'google' => [
+        'client_id' => '731846450476-dvd8c93cesuu9iacpu2paak1kbt41i89.apps.googleusercontent.com', //USE FROM Google DEVELOPER ACCOUNT
+        'client_secret' => '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', //USE FROM Google DEVELOPER ACCOUNT
+        'redirect' => 'http://localhost:8081/google/callback'
+    ],
 ];
