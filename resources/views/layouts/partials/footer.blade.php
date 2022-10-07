@@ -8,8 +8,10 @@
 </footer>
 <!-- jQuery -->
 <script src="{{ URL::asset('plugins/jquery/jquery.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- <script src="{{ URL::asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script> -->
+
 <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- 
 <script src="{{ URL::asset('plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{ URL::asset('plugins/sparklines/sparkline.js') }}"></script>
 <script src="{{ URL::asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
@@ -20,7 +22,7 @@
 <script src="{{
     URL::asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')
     }}"></script>
-<script src="{{ URL::asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/summernote/summernote-bs4.min.js') }}"></script> -->
 <script src="{{
     URL::asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')
     }}"></script>
@@ -54,7 +56,21 @@
 <script>
             $.widget.bridge("uibutton", $.ui.button);
 </script>
-<script>
+<script type="text/javascript">
+    $(document).ready(function() {
+            /* make link active*/
+        
+        var current = location.pathname;
+                $('ul.nav li a').each(function(){
+                    var $this = $(this);
+                    // if the current path is like this link, make it active
+                    if($this.attr('href').indexOf(current) !== -1){
+                        $('ul.nav li a').removeClass('active');
+                        $this.addClass('active');
+                    }
+                });
+
+
             $(function () {
                 $("#example1")
                     .DataTable({
@@ -83,4 +99,6 @@
                     responsive: true,
                 });
             });
+
+});
 </script>

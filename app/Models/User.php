@@ -25,6 +25,7 @@ protected $fillable = [
     'name',
     'google_id',
     'facebook_id',
+    'is_admin',
   ];
     /**
      * The attributes that should be hidden for serialization.
