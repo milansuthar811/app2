@@ -38,7 +38,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('users.index');
+        return redirect()->route('home.dashboard_index');
         // return $this->authenticated($request, $user);
     }
 
