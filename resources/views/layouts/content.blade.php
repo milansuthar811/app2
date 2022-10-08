@@ -50,6 +50,9 @@
                   </tr>
                 </thead>
                 <tbody>
+            
+            @if(!empty($users) && $users->count())
+
                   @foreach ($users as $user)
                   <tr>
                      <td> <form action="{{ route('users.destroy',$user->id) }}"
@@ -65,9 +68,13 @@
                     </td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
-                   
                   </tr>
                   @endforeach
+            @else
+                <tr>
+                    <td colspan="10">There are no data.</td>
+                </tr>
+            @endif
                 </tbody>
                 <tfoot>
                   <tr>
