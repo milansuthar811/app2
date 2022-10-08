@@ -1,22 +1,23 @@
 <?php
   
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
    
 use App\Models\User;
 use Illuminate\Http\Request;
-  
-class UserController extends Controller
+use App\Http\Controllers\Controller;
+
+class UserActionsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function listactions()
     {
-        $users = User::where('is_admin', '=', null)->orderBy('id')->paginate(5);
-        return view('users.index', compact('users'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        $users = User::latest()->paginate(5);
+        return view('users.index',compact('users'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
     /**
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('actions.create');
     }
     
     /**
@@ -35,7 +36,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function stostoreactionsre(Request $request)
     {
         $request->validate([
             'name' => 'required',

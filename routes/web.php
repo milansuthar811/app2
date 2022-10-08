@@ -13,49 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'App\Http\Controllers'], function()
-{
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
     /**
      * Home Routes
      */
-    Route::group(['middleware' => 'auth'], function(){
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/home', 'HomeController@index')->name('home.dashboard_index');
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
         Route::resource('users', UserController::class);
+
+        Route::get('/actions', 'User\UserActionsController@listactions')->name('user.listactions');
+        Route::post('/actions', 'User\UserActionsController@storeactions')->name('user.storeactions');
     });
 
-    Route::get('/', 'HomeController@index')->name('home.dashboard_index');
-
-    // Route::get('/welcome', function () {
-    //     return view('layouts.app', []);
-    // });
-    Route::group(['middleware' => ['guest']], function() {
+    Route::group(['middleware' => ['guest']], function () {
         /**
          * Register Routes
          */
         Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');
+
         /**
          * Login Routes
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::prefix('google')->name('google.')->group(function () {
+            Route::get('login', 'GoogleController@loginWithGoogle')->name('login');
+            Route::any('callback', 'GoogleController@callbackFromGoogle')->name('callback');
+        });         
     });
-
-    Route::group(['middleware' => ['auth']], function() {
-        /**
-         * Logout Routes
-         */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-    });
-
-
-    // Google URL
-    // Route::prefix('google')->name('google.')->group(function () {
-    //     Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
-    //     Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
-    // });    
-    Route::prefix('google')->name('google.')->group(function () {
-        Route::get('login', 'GoogleController@loginWithGoogle')->name('login');
-        Route::any('callback', 'GoogleController@callbackFromGoogle')->name('callback');
-    });    
-   
 });
