@@ -13,21 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'App\Http\Controllers'], function()
-{
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
     /**
      * Home Routes
      */
-    Route::group(['middleware' => 'auth'], function(){
-        Route::get('/', 'HomeController@index')->name('home.index');
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/home', 'HomeController@index')->name('home.dashboard_index');
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        Route::resource('users', UserController::class);
+
+        Route::get('/actions', 'User\UserActionsController@listactions')->name('user.listactions');
+        Route::post('/actions', 'User\UserActionsController@storeactions')->name('user.storeactions');
     });
 
-
-
-    // Route::get('/welcome', function () {
-    //     return view('layouts.app', []);
-    // });
-    Route::group(['middleware' => ['guest']], function() {
+    Route::group(['middleware' => ['guest']], function () {
         /**
          * Register Routes
          */
@@ -39,13 +38,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
-
-    });
-
-    Route::group(['middleware' => ['auth']], function() {
-        /**
-         * Logout Routes
-         */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        Route::prefix('google')->name('google.')->group(function () {
+            Route::get('login', 'GoogleController@loginWithGoogle')->name('login');
+            Route::any('callback', 'GoogleController@callbackFromGoogle')->name('callback');
+        });         
     });
 });

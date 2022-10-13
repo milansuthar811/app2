@@ -29,7 +29,7 @@ class LoginController extends Controller
     {
         $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)):
+        if (!Auth::validate($credentials)) :
             return redirect()->to('login')
                 ->withErrors(trans('auth.failed'));
         endif;
@@ -38,7 +38,8 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return $this->authenticated($request, $user);
+        return redirect()->route('home.dashboard_index');
+        // return $this->authenticated($request, $user);
     }
 
     /**
